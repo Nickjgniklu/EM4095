@@ -11,12 +11,6 @@ bool g_debugMode = false;
 #define PrintAndLog2(f, v) ESP_LOGI(RF_TAG, f, v)
 #define PrintAndLog(f) ESP_LOGI(RF_TAG, f)
 #define WaitUS delayMicroseconds
-#define turn_read_lf_off(microSeconds) \
-    digitalWrite(27, HIGH);            \
-    delayMicroseconds(microSeconds);
-#define turn_read_lf_on(microSeconds) \
-    digitalWrite(27, LOW);            \
-    delayMicroseconds(microSeconds);
 //-----------------------------------
 // EM4469 / EM4305 routines
 //-----------------------------------
@@ -561,4 +555,14 @@ void Em4095::RecordFromAntenna(uint numberOfBits)
     //     data += DemodBuffer[i];
     // }
     // ESP_LOGI(RF_TAG, "Read Buffer: %s", data.c_str());
+}
+
+void Em4095::turn_read_lf_off(uint32_t microSeconds) {
+    digitalWrite(mod, HIGH);            
+    delayMicroseconds(microSeconds);
+}
+
+void Em4095::turn_read_lf_on(uint32_t microSeconds) {
+    digitalWrite(mod, LOW);            
+    delayMicroseconds(microSeconds);
 }

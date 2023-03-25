@@ -53,6 +53,8 @@ private:
     uint8_t Prepare_Addr(uint8_t addr);
     uint8_t Prepare_Data(uint16_t data_low, uint16_t data_hi);
     void RecordFromAntenna(uint32_t numberOfBits);
+    void turn_read_lf_off(uint32_t microseconds);
+    void turn_read_lf_on(uint32_t microseconds);
 
 
 };
