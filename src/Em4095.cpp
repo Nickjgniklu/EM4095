@@ -523,7 +523,7 @@ Em4095::Em4095(byte shd,byte mod, byte demodOut,byte rdyClk){
     this->rdyClk= rdyClk;
 }
 
-void Em4095::RecordFromAntenna(uint numberOfBits)
+void Em4095::RecordFromAntenna(uint32_t numberOfBits)
 {
     if (numberOfBits > MAX_DEMOD_BUF_LEN)
     {
